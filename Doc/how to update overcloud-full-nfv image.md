@@ -1,9 +1,27 @@
 
 # how to update overcloud-full-nfv.qcow2 
+
+there is a default overcloud-full image for all overcloud nodes, but In this project, we need to use SRIOV on computer node. 
+so we need a different image from controller. 
+
+there are several ways to implement this requirement, such as using guestfish, and virt-customize and others. 
+I recommand the following method because it applies to all situations requiring complex modifications.
+
+### prepare a kvm VM , attach the qcow2 file as a new disk to the VM
+
+you can install a new kvm Virtual Machine which is Redhat Linux or other Distribution. 
+
+in virt-manager, you can click "add hardware " button , then select storage , as a scsi device. 
+like that :
+![operations](http://image18-c.poco.cn/mypoco/myphoto/20161204/20/56021142016120420023402.png?1436x788_130)
+
+```sh 
+ssh root@VM 
+
+
 [root@kvm0 /]# lsscsi
 [0:0:0:0]    cd/dvd  QEMU     QEMU DVD-ROM     1.5.  /dev/sr0 
 [2:0:0:0]    disk    QEMU     QEMU HARDDISK    1.5.  /dev/sda 
-You have new mail in /var/spool/mail/root
 [root@kvm0 /]# mount /dev/sda /mnt/
 [root@kvm0 /]# cd /mnt/
 [root@kvm0 mnt]# ls
@@ -12,6 +30,10 @@ bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  s
 [root@kvm0 /]# ls
 bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 [root@kvm0 /]# vim boot/grub2/grub.cfg 
+
+
+
+
 [root@kvm0 /]# vim etc/default/grub 
 [root@kvm0 /]# exit
 exit
@@ -54,6 +76,12 @@ exit
 bak-config  install-commands.md  remove_stack_deleted_left.sh  stackrc     tripleo-overcloud-passwords
 deploy.sh   ipmi_nodes.json      reset-instance.sql            swift-data  undercloud.conf
 images      overcloud-env.json   shanghai-templates            templates   undercloud-passwords.conf
+```
+
+
+## upload the image to Director , apply it.
+
+```sh 
 [stack@director ~]$ glance image-create --name overcloud-full-nfv  --disk-format qcow2 --container-format bare --file images/overcloud-full-nfv.qcow2  --progress 
 [=============================>] 100%
 +------------------+--------------------------------------+
@@ -102,4 +130,6 @@ images      overcloud-env.json   shanghai-templates            templates   under
 | virtual_size          | None                                 |
 +-----------------------+--------------------------------------+
 [stack@director ~]$ 
+
+```
 
