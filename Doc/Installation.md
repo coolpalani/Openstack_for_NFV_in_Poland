@@ -329,7 +329,7 @@ ironic node-update bb3b2e64-fa73-4cfb-b631-8de845459014 replace properties/capab
 ironic node-update 3448cdf2-9d1b-4561-97e4-f2be1ae15e95 replace properties/capabilities='node:compute-3,profile:compute,boot_option:local'
 ironic node-update cf3e00f0-c30b-4350-a4cf-5d4002de6c85 replace properties/capabilities='node:compute-4,profile:compute,boot_option:local'
 ironic node-update a5150cf1-d742-4787-a573-099fd57dc55d replace properties/capabilities='node:compute-5,profile:compute,boot_option:local'
-ironic node-update cce50854-3ce0-4926-9878-1ce32a04f5f9 replace properties/capabilities='node:compute-6,profile:compute,boot_option:local'
+ironic node-update cce50854-3ce0-4926-9878-1ce32a04f5f9 replace properties/capabilities='node:comppute-6,profile:compute,boot_option:local'
 ironic node-update d8df3f50-677d-4ca2-869c-3eb96edc602b replace properties/capabilities='node:compute-7,profile:compute,boot_option:local'
 ironic node-update 4b6a236e-3d29-4eed-8e5f-1e8caf50bdc5 replace properties/capabilities='node:compute-8,profile:compute,boot_option:local'
 
