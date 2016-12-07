@@ -1,4 +1,0 @@
-resource_registry:
-  OS::TripleO::ControllerExtraConfigPre: /home/stack/templates/neutron-sriov_systemd.yaml
-parameter_defaults:
-  systemd_file: /usr/lib/systemd/system/neutron-server.service
