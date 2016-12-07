@@ -1,0 +1,18 @@
+---
+# Defines deployment design and assigns role to server groups
+
+- hosts: controllers
+  become: True
+  roles:
+  - controller
+
+- hosts: computes
+  become: True
+  roles:
+  - compute
+
+- hosts: slot5
+  tasks:
+   - shell: pcs cluster stop --all 
+   #- sleep 360
+   - shell: pcs cluster start --all 

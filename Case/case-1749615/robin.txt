@@ -1,0 +1,199 @@
+[root@director ~]# neutron port-show 3e5b5783-269a-46d9-a739-4c08c7b1746b
++-----------------------+-------------------------------------------------------------------------------------+
+| Field                 | Value                                                                               |
++-----------------------+-------------------------------------------------------------------------------------+
+| admin_state_up        | True                                                                                |
+| allowed_address_pairs |                                                                                     |
+| binding:host_id       | director.vepc.mnc066.mcc260.3gppnetwork.org                                         |
+| binding:profile       | {}                                                                                  |
+| binding:vif_details   | {"port_filter": true, "ovs_hybrid_plug": true}                                      |
+| binding:vif_type      | ovs                                                                                 |
+| binding:vnic_type     | normal                                                                              |
+| created_at            | 2016-11-30T22:39:38                                                                 |
+| description           |                                                                                     |
+| device_id             | dhcp8575ed95-72ce-53fb-ae5e-27d0fc62c05f-03c4a216-1778-4339-8549-9034f5a6f4da       |
+| device_owner          | network:dhcp                                                                        |
+| extra_dhcp_opts       |                                                                                     |
+| fixed_ips             | {"subnet_id": "850a55bf-8dd3-408a-a06c-7c0f727499e4", "ip_address": "172.23.85.85"} |
+| id                    | 3e5b5783-269a-46d9-a739-4c08c7b1746b                                                |
+| mac_address           | fa:16:3e:a2:ea:a5                                                                   |
+| name                  |                                                                                     |
+| network_id            | 03c4a216-1778-4339-8549-9034f5a6f4da                                                |
+| security_groups       |                                                                                     |
+| status                | ACTIVE                                                                              |
+| tenant_id             | 8e4077b6129941779c125dd763c63f4f                                                    |
+| updated_at            | 2016-12-01T16:38:30                                                                 |
++-----------------------+-------------------------------------------------------------------------------------+
+[root@director ~]# ip netns  exec qdhcp-03c4a216-1778-4339-8549-9034f5a6f4da bash 
+[root@director ~]# ss -tulnp | grep dns
+udp    UNCONN     0      0      172.23.85.85:53                    *:*                   users:(("dnsmasq",pid=166627,fd=8))
+udp    UNCONN     0      0      169.254.169.254:53                    *:*                   users:(("dnsmasq",pid=166627,fd=6))
+udp    UNCONN     0      0      *          %tap3e5b5783-26:67                    *:*                   users:(("dnsmasq",pid=166627,fd=4))
+udp    UNCONN     0      0      fe80::f816:3eff:fea2:eaa5%tap3e5b5783-26:53                   :::*                   users:(("dnsmasq",pid=166627,fd=10))
+tcp    LISTEN     0      5      172.23.85.85:53                    *:*                   users:(("dnsmasq",pid=166627,fd=9))
+tcp    LISTEN     0      5      169.254.169.254:53                    *:*                   users:(("dnsmasq",pid=166627,fd=7))
+tcp    LISTEN     0      5      fe80::f816:3eff:fea2:eaa5%tap3e5b5783-26:53                   :::*                   users:(("dnsmasq",pid=166627,fd=11))
+[root@director ~]# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+34: tap3e5b5783-26: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN qlen 1000
+    link/ether fa:16:3e:a2:ea:a5 brd ff:ff:ff:ff:ff:ff
+    inet 172.23.85.85/26 brd 172.23.85.127 scope global tap3e5b5783-26
+       valid_lft forever preferred_lft forever
+    inet 169.254.169.254/16 brd 169.254.255.255 scope global tap3e5b5783-26
+       valid_lft forever preferred_lft forever
+    inet6 fe80::f816:3eff:fea2:eaa5/64 scope link 
+       valid_lft forever preferred_lft forever
+[root@director ~]# ovs-vsctl show 
+90898546-cc35-420b-9e0f-1f07469a0726
+    Bridge br-ctlplane
+        fail_mode: secure
+        Port phy-br-ctlplane
+            Interface phy-br-ctlplane
+                type: patch
+                options: {peer=int-br-ctlplane}
+        Port br-ctlplane
+            Interface br-ctlplane
+                type: internal
+        Port "enp129s0f0"
+            Interface "enp129s0f0"
+    Bridge br-int
+        fail_mode: secure
+        Port int-br-ctlplane
+            Interface int-br-ctlplane				
+                type: patch
+                options: {peer=phy-br-ctlplane}
+        Port br-int
+            Interface br-int
+                type: internal
+        Port "tap3e5b5783-26"
+            tag: 1
+            Interface "tap3e5b5783-26"
+                type: internal
+    ovs_version: "2.4.0"
+[root@director ~]# ovs-ofctl dump-flows br-int
+NXST_FLOW reply (xid=0x4):
+ cookie=0xacb7a3306734a638, duration=1242.919s, table=0, n_packets=427, n_bytes=34802, idle_age=29, priority=2,in_port=1 actions=drop
+ cookie=0xacb7a3306734a638, duration=1243.110s, table=0, n_packets=26, n_bytes=1404, idle_age=577, priority=0 actions=NORMAL
+ cookie=0xacb7a3306734a638, duration=1243.105s, table=23, n_packets=0, n_bytes=0, idle_age=1243, priority=0 actions=drop
+ cookie=0xacb7a3306734a638, duration=1243.100s, table=24, n_packets=0, n_bytes=0, idle_age=1243, priority=0 actions=drop
+ 
+ [root@director ~]# ovs-ofctl show br-int
+OFPT_FEATURES_REPLY (xid=0x2): dpid:000086b2bb9d5d41
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS QUEUE_STATS ARP_MATCH_IP
+actions: output enqueue set_vlan_vid set_vlan_pcp strip_vlan mod_dl_src mod_dl_dst mod_nw_src mod_nw_dst mod_nw_tos mod_tp_src mod_tp_dst
+ 1(int-br-ctlplane): addr:a6:cf:7f:98:41:93
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 2(tap3e5b5783-26): addr:00:00:00:00:00:00
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+ LOCAL(br-int): addr:86:b2:bb:9d:5d:41
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (xid=0x4): frags=normal miss_send_len=0
+[root@director ~]# ovs-ofctl show br-ctlplane 
+OFPT_FEATURES_REPLY (xid=0x2): dpid:00007ca23efc3fa1
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS QUEUE_STATS ARP_MATCH_IP
+actions: output enqueue set_vlan_vid set_vlan_pcp strip_vlan mod_dl_src mod_dl_dst mod_nw_src mod_nw_dst mod_nw_tos mod_tp_src mod_tp_dst
+ 1(phy-br-ctlplane): addr:42:b7:d8:61:9a:57
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 2(enp129s0f0): addr:7c:a2:3e:fc:3f:a1
+     config:     0
+     state:      0
+     current:    10GB-FD FIBER
+     advertised: 10GB-FD FIBER
+     supported:  10GB-FD FIBER
+     speed: 10000 Mbps now, 10000 Mbps max
+ LOCAL(br-ctlplane): addr:7c:a2:3e:fc:3f:a1
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (xid=0x4): frags=normal miss_send_len=0
+[root@director ~]# ovs-ofctl dump-flows br-ctlplane 
+NXST_FLOW reply (xid=0x4):
+ cookie=0x8ff366d18cd35461, duration=1417.357s, table=0, n_packets=26, n_bytes=1404, idle_age=752, priority=2,in_port=1 actions=drop
+ cookie=0x8ff366d18cd35461, duration=1417.433s, table=0, n_packets=574996, n_bytes=839386808, idle_age=1, priority=0 actions=NORMAL
+
+ [root@director ~]# iptables -vnL
+Chain INPUT (policy ACCEPT 12819 packets, 3279K bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ironic-inspector  udp  --  br-ctlplane *       0.0.0.0/0            0.0.0.0/0            udp dpt:67
+ 678K  104M neutron-openvswi-INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 778K  157M nova-api-INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   33  2319 neutron-filter-top  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   33  2319 neutron-openvswi-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 7573  538K nova-filter-top  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   33  2319 nova-api-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 12671 packets, 3301K bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 234K  929M neutron-filter-top  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 234K  929M neutron-openvswi-OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  28M  130G nova-filter-top  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 236K  930M nova-api-OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ironic-inspector (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain neutron-filter-top (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+  84M  383G neutron-openvswi-local  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain neutron-openvswi-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+76913 5478K neutron-openvswi-scope  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain neutron-openvswi-INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain neutron-openvswi-OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain neutron-openvswi-local (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain neutron-openvswi-scope (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain neutron-openvswi-sg-chain (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain neutron-openvswi-sg-fallback (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* Default drop rule for unmatched traffic. */
+
+Chain nova-api-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain nova-api-INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            172.23.85.106        tcp dpt:8775
+
+Chain nova-api-OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain nova-api-local (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain nova-filter-top (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 236K  930M nova-api-local  all  --  *      *       0.0.0.0/0            0.0.0.0/0     
+ 
+

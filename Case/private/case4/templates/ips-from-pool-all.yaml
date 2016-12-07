@@ -1,0 +1,24 @@
+resource_registry:
+  OS::TripleO::Controller::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/ports/external_from_pool.yaml
+  OS::TripleO::Controller::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api_from_pool.yaml
+  OS::TripleO::Controller::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_from_pool.yaml
+  OS::TripleO::Controller::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt_from_pool.yaml
+  OS::TripleO::Controller::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/tenant_from_pool.yaml
+
+parameter_defaults:
+  ControllerIPs:
+
+
+  NovaComputeIPs:
+  - 
+
+
+  CephStorageIPs:
+  storage:
+  - 172.16.1.100
+  - 172.16.1.101
+  - 172.16.1.102
+  storage_mgmt:
+  - 172.16.3.100
+  - 172.16.3.101
+  - 172.16.3.102

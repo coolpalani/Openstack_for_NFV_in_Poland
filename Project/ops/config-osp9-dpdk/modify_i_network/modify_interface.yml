@@ -1,0 +1,13 @@
+---
+- name: modify Iaas management network from br-ex to ens1f0 
+  hosts: computes
+  tasks:
+    - shell: echo > /tmp/ens1f0.net
+    - shell: egrep "IPADDR|GATEWAY"  /etc/sysconfig/network-scripts/ifcfg-br-ex  > /tmp/ens1f0.net
+    - shell: echo "PREFIX=24"  >>  /tmp/ens1f0.net
+    - copy : src=sysfile/ifcfg-ens1f0.template dest=/etc/sysconfig/network-scripts/ifcfg-ens1f0
+    - shell: cat /tmp/ens1f0.net >> /etc/sysconfig/network-scripts/ifcfg-ens1f0
+    - shell: ifdown br-ex ; ovs-vsctl del-br br-ex ; ifup ens1f0 
+    - file:  path=/etc/sysconfig/network-scripts/ifcfg-br-ex state=absent
+
+ 

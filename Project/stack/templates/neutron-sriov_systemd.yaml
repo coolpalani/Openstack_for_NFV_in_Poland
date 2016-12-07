@@ -1,0 +1,35 @@
+heat_template_version: 2014-10-16
+
+description: >
+  Modify neutron systemd config with sriov config
+
+parameters:
+  systemd_file:
+    type: string
+  server:
+    type: string
+
+resources:
+  ExtraPreConfig:
+    type: OS::Heat::SoftwareConfig
+    properties:
+      group: script
+      config:
+        str_replace:
+          template: |
+            #!/bin/sh
+            sed -i 's/\/usr\/bin\/neutron-server/\/usr\/bin\/neutron-server --config-file \/etc\/neutron\/plugins\/ml2\/ml2_conf_sriov.ini/g' _systemd_file_
+          params:
+            _systemd_file_: {get_param: systemd_file}
+  ExtraPreDeployment:
+    type: OS::Heat::SoftwareDeployment
+    properties:
+      config: {get_resource: ExtraPreConfig}
+      server: {get_param: server}
+      actions: ['CREATE','UPDATE']
+
+outputs:
+  deploy_stdout:
+    description: Deployment reference, used to trigger pre-deploy on changes
+    value: {get_attr: [ExtraPreDeployment, deploy_stdout]}
+

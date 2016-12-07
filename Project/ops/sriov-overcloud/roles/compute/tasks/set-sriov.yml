@@ -1,0 +1,3 @@
+---
+- name:  call set-sriov script
+  script: set-sriov.sh 

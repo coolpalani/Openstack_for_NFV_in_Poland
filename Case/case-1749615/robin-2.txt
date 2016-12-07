@@ -1,0 +1,4 @@
+
+
+2016-12-01 15:12:27.796 196919 INFO nova.filters [req-3b555d16-0420-4aba-b197-57341f36cccd 2856ea0763ca4b33bf7b8623f51c6504 8e4077b6129941779c125dd763c63f4f - - -] Filtering removed all hosts for the request with instance ID '5da541e0-014a-47bf-9b57-1c7afe994509'. Filter results: ['RetryFilter: (start: 2, end: 2)', 'TripleOCapabilitiesFilter: (start: 2, end: 2)', 'ComputeCapabilitiesFilter: (start: 2, end: 1)', 'AvailabilityZoneFilter: (start: 1, end: 1)', 'RamFilter: (start: 1, end: 0)']
+

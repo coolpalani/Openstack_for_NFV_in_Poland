@@ -1,0 +1,17 @@
+---
+- name: configure enp70f 63 vfs 
+  shell: echo 63 > /sys/class/net/enp7s0f0/device/sriov_numvfs 
+
+- name: configure enp7s0f1 63 vfs 
+  shell: echo 63 > /sys/class/net/enp7s0f1/device/sriov_numvfs 
+
+- name: configure enp129s0f0 63 vfs 
+  shell: echo 63 > /sys/class/net/enp129s0f0/device/sriov_numvfs 
+
+- name: configure enp129s0f1 63 vfs 
+  shell: echo 63 > /sys/class/net/enp129s0f1/device/sriov_numvfs 
+
+
+- name: persistent for setting vf num 
+  copy: src=rc.local  dest=/etc/rc.d/rc.local mode=0755 owner=root group=root 
+

@@ -1,0 +1,9 @@
+---
+
+- name: enable nova debug 
+  lineinfile: dest=/etc/nova/nova.conf insertafter="debug="  line="debug=true" state=present
+
+- name: restart service
+  service:  name=openstack-nova-compute.service  state=restarted 
+
+

@@ -1,0 +1,28 @@
+{
+"nodes":[
+{
+"mac":[ "7c:a2:3e:ee:88:61" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"pxe_ipmitool",
+"pm_user":"root",
+"pm_password":"Huawei12#$",
+"pm_addr":"172.23.85.77"
+},
+{
+"mac":[ "7c:a2:3e:ee:88:7d" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"pxe_ipmitool",
+"pm_user":"root",
+"pm_password":"Huawei12#$",
+"pm_addr":"172.23.85.73"
+}
+
+]
+}
+

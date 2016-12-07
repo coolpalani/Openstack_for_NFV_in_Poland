@@ -1,0 +1,101 @@
+{
+"nodes":[
+{
+"mac":[ "7c:a2:3e:ee:88:61" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+},
+{
+"mac":[ "7c:a2:3e:ee:88:75" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+},
+{
+"mac":[ "7c:a2:3e:e4:69:b5" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+},
+{
+"mac":[ "7c:a2:3e:ee:88:7d" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+},
+{
+"mac":[ "7c:a2:3e:e4:69:dd" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+}, 
+{
+"mac":[ "7c:a2:3e:e4:69:e9" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+},
+{
+"mac":[ "7c:a2:3e:ee:88:8d" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+},
+{
+"mac":[ "7c:a2:3e:ee:88:79" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+},
+{
+"mac":[ "7c:a2:3e:e4:69:b1" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+},
+{
+"mac":[ "7c:a2:3e:ee:88:99" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+},
+{
+"mac":[ "bc:62:0e:20:7a:17" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+},
+{
+"mac":[ "7c:a2:3e:ee:88:55" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"fake_pxe"
+}
+]
+}
+

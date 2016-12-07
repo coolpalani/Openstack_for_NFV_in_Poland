@@ -1,0 +1,61 @@
+[root@director task1]# ansible overcloud -m ping 
+slot1 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot3 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot10 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot2 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot9 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot4 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot5 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot7 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot14 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot11 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot12 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+slot13 | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+

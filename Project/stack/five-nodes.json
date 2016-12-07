@@ -1,0 +1,61 @@
+{
+"nodes":[
+{
+"mac":[ "7c:a2:3e:ee:88:61" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"pxe_ipmitool",
+"pm_user":"root",
+"pm_password":"Huawei12#$",
+"pm_addr":"172.23.85.77"
+},
+{
+"mac":[ "7c:a2:3e:ee:88:75" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"pxe_ipmitool",
+"pm_user":"root",
+"pm_password":"Huawei12#$",
+"pm_addr":"172.23.85.78"
+},
+{
+"mac":[ "7c:a2:3e:e4:69:b5" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"pxe_ipmitool",
+"pm_user":"root",
+"pm_password":"Huawei12#$",
+"pm_addr":"172.23.85.84"
+},
+{
+"mac":[ "7c:a2:3e:ee:88:7d" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"pxe_ipmitool",
+"pm_user":"root",
+"pm_password":"Huawei12#$",
+"pm_addr":"172.23.85.73"
+},
+{
+"mac":[ "7c:a2:3e:e4:69:dd" ],
+"cpu":"40",
+"memory":"257600",
+"disk":"800",
+"arch":"x86_64",
+"pm_type":"pxe_ipmitool",
+"pm_user":"root",
+"pm_password":"Huawei12#$",
+"pm_addr":"172.23.85.74"
+} 
+
+]
+}
+

@@ -1,0 +1,6 @@
+---
+#- include: basic.yml
+
+#- include: enable-nova-debug.yml
+
+- shell: openstack-service restart 

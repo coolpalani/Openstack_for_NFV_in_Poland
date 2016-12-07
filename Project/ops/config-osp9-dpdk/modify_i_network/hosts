@@ -1,0 +1,15 @@
+[all]
+controller
+compute1
+
+[controls]
+controller
+
+[computes]
+#192.168.55.42 #compute1
+#192.168.55.38 #compute2
+#192.168.55.32 #compute3
+#192.168.55.30 #compute4
+#192.168.55.44 #compute5
+192.168.55.46 #compute6
+192.168.55.26 #compute8

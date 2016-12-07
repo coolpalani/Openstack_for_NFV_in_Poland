@@ -1,0 +1,15 @@
+
+- name: stop ntpd
+  service: name=ntpd  state=stopped enabled=yes
+
+- name: set time
+  shell: timedatectl  set-ntp false 
+
+- name: set time
+  shell: timedatectl  set-time 05:05:50
+
+- name: set time
+  shell: timedatectl  set-ntp true
+
+- name: start ntpd
+  service: name=ntpd  state=started enabled=yes

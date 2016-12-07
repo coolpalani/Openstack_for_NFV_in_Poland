@@ -1,0 +1,12 @@
+---
+- name: tasks for become undercloud from clean rhel linux
+  hosts: localhost
+  tasks:
+    - selinux: policy=targeted state=permissive
+
+    - service: name=NetworkManager.service state=stopped enabled=no
+     
+    - name: stop firewall 
+      service: name=fillwalld.service state=stopped enabled=no
+
+

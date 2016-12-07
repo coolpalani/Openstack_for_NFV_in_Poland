@@ -1,0 +1,81 @@
+4:Dec 01 14:12:08 overcloud-compute-0.localdomain os-collect-config[4299]: 500 Server Error: Internal Server Error for url: http://169.254.169.254/latest/meta-data/
+12:Dec 01 14:12:10 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: Support for registering with a username and password is deprecated.
+14:Dec 01 14:12:10 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: only 'portal', 'satellite', and 'disable' are valid values for REG_METHOD.
+39:Dec 01 14:12:11 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+50:Dec 01 14:12:12 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+91:Dec 01 14:12:13 overcloud-compute-0.localdomain os-collect-config[4299]: 500 Server Error: Internal Server Error for url: http://169.254.169.254/latest/meta-data/
+97:Dec 01 14:12:15 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: Support for registering with a username and password is deprecated.
+99:Dec 01 14:12:15 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: only 'portal', 'satellite', and 'disable' are valid values for REG_METHOD.
+266:Dec 01 14:12:54 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+277:Dec 01 14:12:55 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+286:Dec 01 14:12:55 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:12:55,204] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+345:Dec 01 14:12:59 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: Support for registering with a username and password is deprecated.
+347:Dec 01 14:12:59 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: only 'portal', 'satellite', and 'disable' are valid values for REG_METHOD.
+415:Dec 01 14:13:00 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+426:Dec 01 14:13:00 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+435:Dec 01 14:13:00 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:13:00,463] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+436:Dec 01 14:13:00 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:13:00,463] (heat-config) [WARNING] Skipping config 29e33f74-2a90-4079-966a-bbb4be7e439b, already deployed
+437:Dec 01 14:13:00 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:13:00,464] (heat-config) [WARNING] To force-deploy, rm /var/lib/heat-config/deployed/29e33f74-2a90-4079-966a-bbb4be7e439b.json
+508:Dec 01 14:13:06 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: Support for registering with a username and password is deprecated.
+510:Dec 01 14:13:06 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: only 'portal', 'satellite', and 'disable' are valid values for REG_METHOD.
+578:Dec 01 14:13:06 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+589:Dec 01 14:13:09 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+598:Dec 01 14:13:09 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:13:09,693] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+599:Dec 01 14:13:09 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:13:09,693] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+600:Dec 01 14:13:09 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:13:09,693] (heat-config) [WARNING] Skipping config 29e33f74-2a90-4079-966a-bbb4be7e439b, already deployed
+601:Dec 01 14:13:09 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:13:09,693] (heat-config) [WARNING] To force-deploy, rm /var/lib/heat-config/deployed/29e33f74-2a90-4079-966a-bbb4be7e439b.json
+708:Dec 01 14:18:20 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: Support for registering with a username and password is deprecated.
+710:Dec 01 14:18:20 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: only 'portal', 'satellite', and 'disable' are valid values for REG_METHOD.
+778:Dec 01 14:18:21 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+789:Dec 01 14:18:25 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+921:Dec 01 14:18:26 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:26,139] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+922:Dec 01 14:18:26 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:26,139] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+923:Dec 01 14:18:26 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:26,139] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+924:Dec 01 14:18:26 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:26,139] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+925:Dec 01 14:18:26 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:26,139] (heat-config) [WARNING] Skipping config 29e33f74-2a90-4079-966a-bbb4be7e439b, already deployed
+926:Dec 01 14:18:26 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:26,139] (heat-config) [WARNING] To force-deploy, rm /var/lib/heat-config/deployed/29e33f74-2a90-4079-966a-bbb4be7e439b.json
+1039:Dec 01 14:18:31 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: Support for registering with a username and password is deprecated.
+1041:Dec 01 14:18:31 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: only 'portal', 'satellite', and 'disable' are valid values for REG_METHOD.
+1109:Dec 01 14:18:31 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+1120:Dec 01 14:18:36 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+1268:Dec 01 14:18:36 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:36,346] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1291:Dec 01 14:18:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:37,600] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1292:Dec 01 14:18:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:37,600] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1293:Dec 01 14:18:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:37,600] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1294:Dec 01 14:18:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:37,600] (heat-config) [WARNING] Skipping config 29e33f74-2a90-4079-966a-bbb4be7e439b, already deployed
+1295:Dec 01 14:18:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:18:37,600] (heat-config) [WARNING] To force-deploy, rm /var/lib/heat-config/deployed/29e33f74-2a90-4079-966a-bbb4be7e439b.json
+1394:Dec 01 14:19:14 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: Support for registering with a username and password is deprecated.
+1396:Dec 01 14:19:14 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: only 'portal', 'satellite', and 'disable' are valid values for REG_METHOD.
+1464:Dec 01 14:19:15 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+1475:Dec 01 14:19:19 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+1623:Dec 01 14:19:19 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:19,748] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1624:Dec 01 14:19:19 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:19,748] (heat-config) [WARNING] Skipping config 98653d47-e4b3-46f9-9905-9f4c3a68b8f1, already deployed
+1625:Dec 01 14:19:19 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:19,748] (heat-config) [WARNING] To force-deploy, rm /var/lib/heat-config/deployed/98653d47-e4b3-46f9-9905-9f4c3a68b8f1.json
+1626:Dec 01 14:19:19 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:19,748] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1627:Dec 01 14:19:19 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:19,748] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1628:Dec 01 14:19:19 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:19,748] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1629:Dec 01 14:19:19 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:19,748] (heat-config) [WARNING] Skipping config 29e33f74-2a90-4079-966a-bbb4be7e439b, already deployed
+1630:Dec 01 14:19:19 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:19,748] (heat-config) [WARNING] To force-deploy, rm /var/lib/heat-config/deployed/29e33f74-2a90-4079-966a-bbb4be7e439b.json
+1741:Dec 01 14:19:25 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: Support for registering with a username and password is deprecated.
+1743:Dec 01 14:19:25 overcloud-compute-0.localdomain os-collect-config[4299]: WARNING: only 'portal', 'satellite', and 'disable' are valid values for REG_METHOD.
+1811:Dec 01 14:19:26 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+1822:Dec 01 14:19:30 overcloud-compute-0.localdomain os-collect-config[4299]: + set -o pipefail
+1970:Dec 01 14:19:30 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:30,771] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1971:Dec 01 14:19:30 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:30,771] (heat-config) [WARNING] Skipping config 98653d47-e4b3-46f9-9905-9f4c3a68b8f1, already deployed
+1972:Dec 01 14:19:30 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:30,771] (heat-config) [WARNING] To force-deploy, rm /var/lib/heat-config/deployed/98653d47-e4b3-46f9-9905-9f4c3a68b8f1.json
+1973:Dec 01 14:19:30 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:30,771] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1975:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:37,092] (heat-config) [INFO] {"deploy_stdout": "", "deploy_stderr": "\u001b[1;31mWarning: Scope(Class[Nova::Vncproxy::Common]): Could not look up qualified variable '::nova::vncproxy::host'; class ::nova::vncproxy has not been evaluated\u001b[0m\n\u001b[1;31mWarning: Scope(Class[Nova::Vncproxy::Common]): Could not look up qualified variable '::nova::vncproxy::vncproxy_protocol'; class ::nova::vncproxy has not been evaluated\u001b[0m\n\u001b[1;31mWarning: Scope(Class[Nova::Vncproxy::Common]): Could not look up qualified variable '::nova::vncproxy::port'; class ::nova::vncproxy has not been evaluated\u001b[0m\n\u001b[1;31mWarning: Scope(Class[Nova::Vncproxy::Common]): Could not look up qualified variable '::nova::vncproxy::vncproxy_path'; class ::nova::vncproxy has not been evaluated\u001b[0m\n\u001b[1;31mWarning: Scope(Class[Ceilometer::Agent::Compute]): This class is deprecated. Please use ceilometer::agent::polling with compute namespace instead.\u001b[0m\n\u001b[1;31mError: vlan id are invalid. on node overcloud-compute-0.localdomain\u001b[0m\n\u001b[1;31mError: vlan id are invalid. on node overcloud-compute-0.localdomain\u001b[0m\n", "deploy_status_code": 1}
+1978:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:37,089] (heat-config) [INFO] Warning: Scope(Class[Nova::Vncproxy::Common]): Could not look up qualified variable '::nova::vncproxy::host'; class ::nova::vncproxy has not been evaluated
+1979:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: Warning: Scope(Class[Nova::Vncproxy::Common]): Could not look up qualified variable '::nova::vncproxy::vncproxy_protocol'; class ::nova::vncproxy has not been evaluated
+1980:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: Warning: Scope(Class[Nova::Vncproxy::Common]): Could not look up qualified variable '::nova::vncproxy::port'; class ::nova::vncproxy has not been evaluated
+1981:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: Warning: Scope(Class[Nova::Vncproxy::Common]): Could not look up qualified variable '::nova::vncproxy::vncproxy_path'; class ::nova::vncproxy has not been evaluated
+1982:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: Warning: Scope(Class[Ceilometer::Agent::Compute]): This class is deprecated. Please use ceilometer::agent::polling with compute namespace instead.
+1983:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: Error: vlan id are invalid. on node overcloud-compute-0.localdomain
+1984:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: Error: vlan id are invalid. on node overcloud-compute-0.localdomain
+1985:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:37,089] (heat-config) [ERROR] Error running /var/lib/heat-config/heat-config-puppet/1ece8340-6212-4e73-9bdb-a97a24183bd3.pp. [1]
+1991:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:37,824] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1992:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:37,824] (heat-config) [WARNING] Skipping group os-apply-config with no hook script /var/lib/heat-config/hooks/os-apply-config
+1993:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:37,824] (heat-config) [WARNING] Skipping config 29e33f74-2a90-4079-966a-bbb4be7e439b, already deployed
+1994:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:37,825] (heat-config) [WARNING] To force-deploy, rm /var/lib/heat-config/deployed/29e33f74-2a90-4079-966a-bbb4be7e439b.json
+1995:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:37,825] (heat-config) [WARNING] Skipping config 0e6126bd-8461-4552-91e5-95c9be140a46, already deployed
+1996:Dec 01 14:19:37 overcloud-compute-0.localdomain os-collect-config[4299]: [2016-12-01 14:19:37,825] (heat-config) [WARNING] To force-deploy, rm /var/lib/heat-config/deployed/0e6126bd-8461-4552-91e5-95c9be140a46.json

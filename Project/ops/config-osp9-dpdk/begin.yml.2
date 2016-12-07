@@ -1,0 +1,43 @@
+---
+- name: config selinux
+  hosts: computes
+  tasks:
+
+    - name: add port to bridge
+      shell: ovs-vsctl add-port {{item.bridge}} {{item.port}} -- set Interface {{item.port}} type=dpdk
+      with_items:
+        - {bridge: "br-phy1" , port: "dpdk0"}
+        - {bridge: "br-phy2" , port: "dpdk1"}
+      ignore_errors: yes
+
+   
+    - name: config nova for ovs-dpdk 
+      lineinfile: dest=/etc/nova/nova.conf insertafter="#scheduler_default_filters" line=scheduler_default_filters=RamFilter,ComputeFilter,AvailabilityZoneFilter,ComputeCapabilitiesFilter,ImagePropertiesFilter,PciPassthroughFilter,NUMATopologyFilter  state=present
+      
+    - name: restart nova
+      service: name=openstack-nova-compute.service  state=restarted
+
+    - name: config openvswitch-nonetwork.service 1 
+      lineinfile: dest=/usr/lib/systemd/system/openvswitch-nonetwork.service insertafter=EOF line=Group=qemu  state=present
+
+    - name: config openvswitch-nonetwork.service 2 
+      lineinfile: dest=/usr/lib/systemd/system/openvswitch-nonetwork.service insertafter=EOF line=UMask=0002  state=present
+    
+    - name: modify /usr/share/openvswitch/scripts/ovs-ctl
+      copy: dest=/usr/share/openvswitch/scripts/ovs-ctl  src=sysfile/ovs-ctl 
+
+    - name: config openvswitch_agent.ini
+      lineinfile: dest=/etc/neutron/plugins/ml2/openvswitch_agent.ini insertafter="^bridge_mapping" line=bridge_mappings=phy1:br-phy1,phy2:br-phy2,phy3:br-phy3,phy4:br-phy4  state=present
+    
+    - name: reboot for taking effect on above configuration
+      shell: sleep 2 && shutdown -r now "Ansible set ovs-dpdk triggered"
+      async: 1
+      poll: 0
+      ignore_errors: true
+
+    - name: waiting for server to come back within 420s  
+      local_action: wait_for host={{ inventory_hostname }} state=started delay=10 timeout=420 port=22 
+   
+
+    
+   

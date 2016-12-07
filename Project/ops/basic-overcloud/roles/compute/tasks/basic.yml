@@ -1,0 +1,8 @@
+---
+
+- name: configure  sshd service,first edit config file
+  lineinfile: dest=/etc/ssh/sshd_config insertafter=UseDNS  line="UseDNS no" state=present
+
+- name: restart sshd service
+  service: name=sshd state=restarted
+ 

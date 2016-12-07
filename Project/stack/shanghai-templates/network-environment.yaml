@@ -1,0 +1,43 @@
+resource_registry:
+ OS::TripleO::Compute::Net::SoftwareConfig: /home/stack/templates/nic-configs/compute.yaml
+ OS::TripleO::Controller::Net::SoftwareConfig: /home/stack/templates/nic-configs/controller.yaml
+ OS::TripleO::CephStorage::Net::SoftwareConfig: /home/stack/templates/nic-configs/ceph-storage.yaml
+ 
+
+
+parameters:
+ NeutronExternalNetworkBridge: "''"
+
+parameter_defaults:
+
+ # The IP address of the EC2 metadata server. Generally the IP of the Undercloud
+ EC2MetadataIp: 31.1.3.201
+
+ ControlPlaneDefaultRoute: 31.1.3.201
+ ControlPlaneSubnetCidr: '24'
+ DnsServers: ["31.1.3.201"]
+
+ ExternalNetCidr: 192.168.99.0/24
+ ExternalAllocationPools: [{'start': '192.168.99.100', 'end': '192.168.99.200'}]
+ ExternalInterfaceDefaultRoute: 192.168.99.1
+ ExternalNetworkVlanID: 1201
+
+ InternalApiNetCidr: 192.168.91.0/24
+ InternalApiAllocationPools: [{'start': '192.168.91.100', 'end': '192.168.91.200'}]
+ InternalApiNetworkVlanID: 1300
+
+ StorageNetCidr: 192.168.92.0/24
+ StorageAllocationPools: [{'start': '192.168.92.100', 'end': '192.168.92.200'}]
+ StorageNetworkVlanID: 1301
+
+ StorageMgmtNetCidr: 192.168.93.0/24
+ StorageMgmtAllocationPools: [{'start': '192.168.93.100', 'end': '192.168.93.200'}]
+ StorageMgmtNetworkVlanID: 1302
+
+ TenantNetCidr: 192.168.94.0/24
+ TenantAllocationPools: [{'start': '192.168.94.100', 'end': '192.168.94.200'}]
+ TenantNetworkVlanID: 1303
+
+
+ BondInterfaceOvsOptions: "bond_mode=active-backup"
+

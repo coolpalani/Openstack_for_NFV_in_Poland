@@ -1,0 +1,19 @@
+parameter_defaults:
+  ControllerSchedulerHints:
+    'capabilities:node': 'controller-%index%'
+  NovaComputeSchedulerHints:
+    'capabilities:node': 'compute-%index%'
+  HostnameMap:
+    overcloud-controller-0: slot5
+    overcloud-controller-1: slot7 
+    overcloud-controller-2: slot14 
+    overcloud-compute-0: slot1 
+    overcloud-compute-1: slot2 
+    overcloud-compute-2: slot3 
+    overcloud-compute-3: slot4 
+    overcloud-compute-4: slot9 
+    overcloud-compute-5: slot10 
+    overcloud-compute-6: slot11 
+    overcloud-compute-7: slot12 
+    overcloud-compute-8: slot13 
+  CloudDomain: vepc.mnc066.mcc260.3gppnetwork.org 

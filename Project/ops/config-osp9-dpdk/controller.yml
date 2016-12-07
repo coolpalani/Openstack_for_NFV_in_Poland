@@ -1,0 +1,10 @@
+---
+- name: config nova-schduler
+  hosts: controls
+  tasks:
+    - name: config nova for ovs-dpdk 
+      lineinfile: dest=/etc/nova/nova.conf insertafter="#scheduler_default_filters" line=scheduler_default_filters=RamFilter,ComputeFilter,AvailabilityZoneFilter,ComputeCapabilitiesFilter,ImagePropertiesFilter,PciPassthroughFilter,NUMATopologyFilter  state=present
+      
+    - name: restart nova
+      shell: openstack-service restart nova
+
