@@ -6,6 +6,9 @@
 
 # Solution 
 
+stop to use NetworkMange which is default in Redhat Linux.
+
+```bash
 
 [root@slot5 ~]# ip r
 default via 172.23.85.1 dev vlan4004 
@@ -35,6 +38,6 @@ systemctl disable NetworkManager
 systemctl stop NetworkManager
 /etc/init.d/network restart 
 
-
+```
 
 
