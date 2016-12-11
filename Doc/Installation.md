@@ -229,7 +229,11 @@ undercloud_debug = true
 
 
 # Check network configuration of switch and confirm.
-
+Confirm switch configuration before deploying Openstack 
+for  example ,  enp4s0f0 上面承载pxe,  和external , internal 网络, 
+pxe , Plain IP 
+external ,  Vlan  4004 
+internal ,  Vlan  3092 
 
 
 

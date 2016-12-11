@@ -1,0 +1,4 @@
+
+- name: enable neutron debug 
+  shell: openstack-config --set  /etc/neutron/neutron.conf DEFAULT  debug true
+

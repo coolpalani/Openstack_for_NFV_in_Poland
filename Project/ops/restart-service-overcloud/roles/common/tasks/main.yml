@@ -1,0 +1,5 @@
+---
+#- include: time-set.yml
+#
+#- name: configure selinux and sshd service
+#  selinux: policy=targeted state=permissive

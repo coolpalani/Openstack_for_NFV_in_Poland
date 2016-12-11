@@ -1,0 +1,22 @@
+
+PLAY [controllers] ************************************************************ 
+
+GATHERING FACTS *************************************************************** 
+ok: [slot5]
+ok: [slot14]
+ok: [slot7]
+
+TASK: [controller | call set-sriov.sh script] ********************************* 
+fatal: [slot7] => input file not found at /root/ops/sriov-overcloud/roles/controller/files/set-sriov.sh or /root/ops/sriov-overcloud/set-sriov.sh
+fatal: [slot14] => input file not found at /root/ops/sriov-overcloud/roles/controller/files/set-sriov.sh or /root/ops/sriov-overcloud/set-sriov.sh
+fatal: [slot5] => input file not found at /root/ops/sriov-overcloud/roles/controller/files/set-sriov.sh or /root/ops/sriov-overcloud/set-sriov.sh
+
+FATAL: all hosts have already failed -- aborting
+
+PLAY RECAP ******************************************************************** 
+           to retry, use: --limit @/root/site.retry
+
+slot14                     : ok=1    changed=0    unreachable=1    failed=0   
+slot5                      : ok=1    changed=0    unreachable=1    failed=0   
+slot7                      : ok=1    changed=0    unreachable=1    failed=0   
+

@@ -1,0 +1,7 @@
+---
+- script: restart-service.sh  openstack-nova-scheduler
+- script: restart-service.sh  openstack-nova-conductor
+- script: restart-service.sh  openstack-nova-api
+
+
+

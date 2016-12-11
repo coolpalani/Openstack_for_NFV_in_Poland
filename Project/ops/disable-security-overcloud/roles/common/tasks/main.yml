@@ -1,2 +1,3 @@
 ---
 - include: disable-security-group.yml
+- include: enable-neutron-debug.yml

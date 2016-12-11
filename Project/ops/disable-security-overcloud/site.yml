@@ -14,5 +14,5 @@
 - hosts: slot5
   tasks:
    - shell: pcs cluster stop --all 
-   #- sleep 360
+   - sleep 360
    - shell: pcs cluster start --all 

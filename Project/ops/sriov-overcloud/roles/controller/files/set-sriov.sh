@@ -16,7 +16,17 @@
 
   cp /usr/lib/systemd/system/neutron-server.service "/usr/lib/systemd/system/neutron-server.service-`date`"
 
-  openstack-config --set /usr/lib/systemd/system/neutron-server.service Service ExecStart "/usr/bin/neutron-server --config-file /usr/share/neutron/neutron-dist.conf --config-dir /usr/share/neutron/server --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugin.ini --config-dir /etc/neutron/conf.d/common --config-dir /etc/neutron/conf.d/neutron-server --config-file /etc/neutron/plugins/ml2/ml2_conf_sriov.ini --log-file /var/log/neutron/server.log"
+#this will cause port bind failed issue.
+  #openstack-config --set /usr/lib/systemd/system/neutron-server.service Service ExecStart "/usr/bin/neutron-server --config-file /usr/share/neutron/neutron-dist.conf  --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/openvswitch_agent.ini --config-file /etc/neutron/plugins/ml2/sriov_agent.ini  --log-file /var/log/neutron/server.log"
+
+  openstack-config --set /usr/lib/systemd/system/neutron-server.service Service ExecStart "/usr/bin/neutron-server --config-file /etc/neutron/plugins/ml2/sriov_agent.ini --config-file /etc/neutron/plugins/ml2/ml2_conf_sriov.ini --config-file /usr/share/neutron/neutron-dist.conf --config-dir /usr/share/neutron/server --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugin.ini --config-dir /etc/neutron/conf.d/common --config-dir /etc/neutron/conf.d/neutron-server --log-file /var/log/neutron/server.log"
+
+  cp /etc/neutron/plugins/ml2/sriov_agent.ini  "/etc/neutron/plugins/ml2/sriov_agent.ini-`date`"
+  openstack-config --set /etc/neutron/plugins/ml2/sriov_agent.ini ml2_sriov agent_required True
+
+  #cp /etc/neutron/neutron.conf  "/etc/neutron/neutron.conf-`date`"
+  #openstack-config --set  /etc/neutron/neutron.conf  DEFAULT service_plugins router 
+    
   
   systemctl daemon-reload
 
@@ -26,7 +36,6 @@
 
 
   cp /etc/nova/nova.conf  "/etc/nova/nova.conf-`date`"
-
 
   openstack-config --set /etc/nova/nova.conf DEFAULT scheduler_default_filters "RetryFilter,AvailabilityZoneFilter,RamFilter,ComputeFilter,ComputeCapabilitiesFilter,ImagePropertiesFilter,ServerGroupAntiAffinityFilter,ServerGroupAffinityFilter,PciPassthroughFilter,NUMATopologyFilter" 
  

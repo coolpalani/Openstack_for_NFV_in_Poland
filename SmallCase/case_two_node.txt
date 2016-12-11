@@ -1,0 +1,255 @@
+[stack@director ~]$ time openstack overcloud deploy   --templates   ~/templates/my-overcloud/             \
+> -e ~/templates/my-overcloud/environments/network-isolation.yaml                   \
+> -e ~/templates/network-environment.yaml \
+> -e ~/templates/userdata.yaml \
+> -e ~/templates/extra_config.json -e ~/templates/pre-config.yaml       \
+> --control-flavor control --compute-flavor compute   --ceph-storage-flavor ceph-storage     \
+> --control-scale 1    --compute-scale 1  --ceph-storage-scale 0 --block-storage-scale 0   --swift-storage-scale 0   \
+> --neutron-network-type vlan    --neutron-disable-tunneling   \
+> --neutron-bridge-mappings datacentre:br-ex,Date_OVS_vlan_phynet0:br-phynet0  \
+> --neutron-network-vlan-ranges datacentre:1:4095,Date_OVS_vlan_phynet0:1:4095      \
+> --ntp-server   172.23.85.106   --libvirt-type  kvm
+Deploying templates in the directory /home/stack/templates/my-overcloud
+2016-11-30 21:58:57 [overcloud]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:58:57 [PcsdPassword]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:57 [MysqlClusterUniquePart]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:57 [Networks]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:57 [RabbitCookie]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [HeatAuthEncryptionKey]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [MysqlRootPassword]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [VipConfig]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [HorizonSecret]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [PcsdPassword]: CREATE_COMPLETE state changed
+2016-11-30 21:58:58 [HorizonSecret]: CREATE_COMPLETE state changed
+2016-11-30 21:58:58 [HeatAuthEncryptionKey]: CREATE_COMPLETE state changed
+2016-11-30 21:58:58 [MysqlRootPassword]: CREATE_COMPLETE state changed
+2016-11-30 21:58:58 [RabbitCookie]: CREATE_COMPLETE state changed
+2016-11-30 21:58:58 [MysqlClusterUniquePart]: CREATE_COMPLETE state changed
+2016-11-30 21:58:58 [overcloud-VipConfig-ndvui3aeq3is]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:58:58 [VipConfigImpl]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [VipConfigImpl]: CREATE_COMPLETE state changed
+2016-11-30 21:58:58 [overcloud-VipConfig-ndvui3aeq3is]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:58:58 [overcloud-Networks-dtq4gajkoeeg]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:58:58 [ManagementNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [StorageMgmtNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [InternalNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [StorageNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [TenantNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [overcloud-Networks-dtq4gajkoeeg-ManagementNetwork-2e5qaay7ypa3]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:58:58 [overcloud-Networks-dtq4gajkoeeg-ManagementNetwork-2e5qaay7ypa3]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:58:58 [overcloud-Networks-dtq4gajkoeeg-InternalNetwork-hexidcvjkixj]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:58:58 [InternalApiNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [overcloud-Networks-dtq4gajkoeeg-StorageMgmtNetwork-jpbyrt3lqzbf]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:58:58 [StorageMgmtNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [StorageMgmtNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:58:58 [StorageMgmtSubnet]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:58 [overcloud-Networks-dtq4gajkoeeg-StorageNetwork-2t3va47alvit]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:58:59 [VipConfig]: CREATE_COMPLETE state changed
+2016-11-30 21:58:59 [ExternalNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:59 [ManagementNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:58:59 [InternalApiNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:58:59 [InternalApiSubnet]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:59 [StorageNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:59 [overcloud-Networks-dtq4gajkoeeg-TenantNetwork-jetgo6zlkjmx]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:58:59 [TenantNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:58:59 [overcloud-Networks-dtq4gajkoeeg-ExternalNetwork-3ve63gyvwrsf]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:58:59 [ExternalNetwork]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:00 [StorageNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:59:00 [StorageSubnet]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:00 [TenantNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:59:00 [TenantSubnet]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:00 [ExternalNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:59:00 [ExternalSubnet]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:01 [InternalApiSubnet]: CREATE_COMPLETE state changed
+2016-11-30 21:59:01 [overcloud-Networks-dtq4gajkoeeg-InternalNetwork-hexidcvjkixj]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:01 [StorageMgmtSubnet]: CREATE_COMPLETE state changed
+2016-11-30 21:59:01 [overcloud-Networks-dtq4gajkoeeg-StorageMgmtNetwork-jpbyrt3lqzbf]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:01 [StorageSubnet]: CREATE_COMPLETE state changed
+2016-11-30 21:59:01 [overcloud-Networks-dtq4gajkoeeg-StorageNetwork-2t3va47alvit]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:02 [ExternalNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:59:02 [StorageMgmtNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:59:02 [TenantNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:59:02 [InternalNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:59:02 [StorageNetwork]: CREATE_COMPLETE state changed
+2016-11-30 21:59:02 [overcloud-Networks-dtq4gajkoeeg]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:02 [TenantSubnet]: CREATE_COMPLETE state changed
+2016-11-30 21:59:02 [overcloud-Networks-dtq4gajkoeeg-TenantNetwork-jetgo6zlkjmx]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:02 [ExternalSubnet]: CREATE_COMPLETE state changed
+2016-11-30 21:59:02 [overcloud-Networks-dtq4gajkoeeg-ExternalNetwork-3ve63gyvwrsf]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:03 [overcloud-CephStorage-4vnhm37ea7fr]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:03 [overcloud-CephStorage-4vnhm37ea7fr]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:03 [ControlVirtualIP]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:03 [overcloud-ObjectStorage-a2smxia4vxy5]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:03 [overcloud-ObjectStorage-a2smxia4vxy5]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:05 [ObjectStorage]: CREATE_COMPLETE state changed
+2016-11-30 21:59:05 [ControlVirtualIP]: CREATE_COMPLETE state changed
+2016-11-30 21:59:05 [CephStorage]: CREATE_COMPLETE state changed
+2016-11-30 21:59:05 [StorageVirtualIP]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:05 [RedisVirtualIP]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:05 [overcloud-StorageVirtualIP-t3gkjgfwhrh5]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:05 [StoragePort]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:06 [PublicVirtualIP]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:06 [StorageMgmtVirtualIP]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:06 [overcloud-RedisVirtualIP-mvfrrhesy2jx]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:06 [VipPort]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:06 [StoragePort]: CREATE_COMPLETE state changed
+2016-11-30 21:59:06 [overcloud-StorageVirtualIP-t3gkjgfwhrh5]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:06 [overcloud-PublicVirtualIP-5zcaagw34zyh]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:07 [InternalApiVirtualIP]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:07 [VipPort]: CREATE_COMPLETE state changed
+2016-11-30 21:59:07 [overcloud-RedisVirtualIP-mvfrrhesy2jx]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:07 [overcloud-InternalApiVirtualIP-fyvtxxmmqqdn]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:07 [InternalApiPort]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:07 [overcloud-StorageMgmtVirtualIP-bzqrfbxwli32]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:07 [StorageMgmtPort]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:07 [StorageMgmtPort]: CREATE_COMPLETE state changed
+2016-11-30 21:59:07 [overcloud-StorageMgmtVirtualIP-bzqrfbxwli32]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:07 [ExternalPort]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:07 [ExternalPort]: CREATE_COMPLETE state changed
+2016-11-30 21:59:07 [overcloud-PublicVirtualIP-5zcaagw34zyh]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:08 [StorageVirtualIP]: CREATE_COMPLETE state changed
+2016-11-30 21:59:08 [RedisVirtualIP]: CREATE_COMPLETE state changed
+2016-11-30 21:59:08 [PublicVirtualIP]: CREATE_COMPLETE state changed
+2016-11-30 21:59:08 [InternalApiPort]: CREATE_COMPLETE state changed
+2016-11-30 21:59:08 [overcloud-InternalApiVirtualIP-fyvtxxmmqqdn]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:09 [StorageMgmtVirtualIP]: CREATE_COMPLETE state changed
+2016-11-30 21:59:09 [InternalApiVirtualIP]: CREATE_COMPLETE state changed
+2016-11-30 21:59:09 [VipMap]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:10 [overcloud-VipMap-is4epdxbtnlh]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:10 [overcloud-VipMap-is4epdxbtnlh]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:11 [VipMap]: CREATE_COMPLETE state changed
+2016-11-30 21:59:11 [EndpointMap]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:11 [overcloud-EndpointMap-au3ns7tiy2wo]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:11 [overcloud-EndpointMap-au3ns7tiy2wo]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:12 [EndpointMap]: CREATE_COMPLETE state changed
+2016-11-30 21:59:12 [Compute]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:14 [BlockStorage]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:14 [Controller]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:14 [overcloud-BlockStorage-f5jgjyuoln5x]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:14 [overcloud-BlockStorage-f5jgjyuoln5x]: CREATE_COMPLETE Stack CREATE completed successfully
+2016-11-30 21:59:14 [overcloud-Compute-26l2h2or5ffg]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:14 [0]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:17 [overcloud-Controller-dr7fmk6gzn6p]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:17 [0]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:18 [BlockStorage]: CREATE_COMPLETE state changed
+2016-11-30 21:59:18 [overcloud-Compute-26l2h2or5ffg-0-7oembsssvevf]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:18 [NodeAdminUserData]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:18 [NodeUserData]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:18 [UpdateConfig]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:18 [NovaComputeConfig]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:18 [NovaComputeConfig]: CREATE_COMPLETE state changed
+2016-11-30 21:59:19 [overcloud-Controller-dr7fmk6gzn6p-0-yijbzlqtnf2r]: CREATE_IN_PROGRESS Stack CREATE started
+2016-11-30 21:59:19 [NodeAdminUserData]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:19 [NodeUserData]: CREATE_COMPLETE state changed
+2016-11-30 21:59:19 [NodeAdminUserData]: CREATE_COMPLETE state changed
+2016-11-30 21:59:19 [UpdateConfig]: CREATE_COMPLETE state changed
+2016-11-30 21:59:19 [UserData]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:20 [UpdateConfig]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:20 [NodeUserData]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:20 [UpdateConfig]: CREATE_COMPLETE state changed
+2016-11-30 21:59:21 [UserData]: CREATE_COMPLETE state changed
+2016-11-30 21:59:21 [NovaCompute]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:21 [NodeAdminUserData]: CREATE_COMPLETE state changed
+2016-11-30 21:59:22 [NodeUserData]: CREATE_COMPLETE state changed
+2016-11-30 21:59:22 [UserData]: CREATE_IN_PROGRESS state changed
+2016-11-30 21:59:23 [UserData]: CREATE_COMPLETE state changed
+2016-11-30 21:59:24 [Controller]: CREATE_IN_PROGRESS state changed
+
+
+
+introspection结束后关机, 会看到她拒绝dhcp 
+
+
+[root@director ~]# iptables -nvL 
+Chain INPUT (policy ACCEPT 332K packets, 1485M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 332K 1485M neutron-openvswi-INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    9  5184 ironic-inspector  udp  --  br-ctlplane *       0.0.0.0/0            0.0.0.0/0            udp dpt:67
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+62544 4458K neutron-filter-top  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+62544 4458K neutron-openvswi-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 332K packets, 1485M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  51M  221G neutron-filter-top  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  51M  221G neutron-openvswi-OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain ironic-inspector (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    9  5184 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-port-unreachable
+
+Chain neutron-filter-top (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+  51M  221G neutron-openvswi-local  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain neutron-openvswi-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+62544 4458K neutron-openvswi-scope  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain neutron-openvswi-INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain neutron-openvswi-OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain neutron-openvswi-local (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain neutron-openvswi-scope (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain neutron-openvswi-sg-chain (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain neutron-openvswi-sg-fallback (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* Default drop rule for unmatched traffic. */
+[root@director ~]# 
+
+
+执行 iptables -D INPUT  2 删除  9  5184 ironic-inspector  udp  --  br-ctlplane *       0.0.0.0/0            0.0.0.0/0            udp dpt:67  之后
+u'inventory': {u'bmc_address': u'172.23.85.73', u'interfaces': [{u'name': u'enp4s0f1', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'7c:a2:3e:ee:88:7e'}
+
+[root@director ironic-inspector]# nova list
++--------------------------------------+------------------------+--------+------------+-------------+-----------------------+
+| ID                                   | Name                   | Status | Task State | Power State | Networks              |
++--------------------------------------+------------------------+--------+------------+-------------+-----------------------+
+| 958a691b-51df-4fb6-b55e-cb7599777134 | overcloud-compute-0    | BUILD  | spawning   | NOSTATE     | ctlplane=172.23.85.91 |
+| 5a1a855d-7b34-4248-ab36-50b532d941cd | overcloud-controller-0 | BUILD  | spawning   | NOSTATE     | ctlplane=172.23.85.92 |
++--------------------------------------+------------------------+--------+------------+-------------+-----------------------+
+[root@director ironic-inspector]# ironic node-list
++--------------------------------------+------+--------------------------------------+-------------+--------------------+-------------+
+| UUID                                 | Name | Instance UUID                        | Power State | Provisioning State | Maintenance |
++--------------------------------------+------+--------------------------------------+-------------+--------------------+-------------+
+| 3e57d7ca-eac9-4b8e-8808-f8019c97a508 | None | 5a1a855d-7b34-4248-ab36-50b532d941cd | power on    | wait call-back     | False       |
+| 22c20294-b127-42da-aac9-63a1b23609e0 | None | 958a691b-51df-4fb6-b55e-cb7599777134 | power on    | wait call-back     | False       |
++--------------------------------------+------+--------------------------------------+-------------+--------------------+-------------+
+
+
+76608:2016-11-30 17:13:02.928 142656 ERROR ironic_inspector.utils [-] [node: MAC 7c:a2:3e:ee:88:7d BMC 172.23.85.73] The following failures happened during running pre-processing hooks:
+76609:Look up error: Could not find a node for attributes {'bmc_address': u'172.23.85.73', 'mac': [u'7c:a2:3e:ee:88:7d']}
+76610:2016-11-30 17:13:02.929 142656 DEBUG ironic_inspector.main [-] Returning error to client: The following failures happened during running pre-processing hooks:
+76611:Look up error: Could not find a node for attributes {'bmc_address': u'172.23.85.73', 'mac': [u'7c:a2:3e:ee:88:7d']} error_response /usr/lib/python2.7/site-packages/ironic_inspector/main.py:64
+
+
+
+
+76533:2016-11-30 17:12:34.608 142656 DEBUG ironic_inspector.main [-] [node: MAC 7c:a2:3e:ee:88:61 BMC 172.23.85.77] Received data from the ramdisk: {u'cpu_arch': u'x86_64', u'root_disk': {u'rotational': True, u'vendor': u'HITACHI', u'name': u'/dev/sda', u'wwn_vendor_extension': None, u'wwn_with_extension': u'0x5000cca071225b78', u'model': u'HUC109090CSS600', u'wwn': u'0x5000cca071225b78', u'serial': u'5000cca071225b78', u'size': 900185481216}, u'interfaces': {u'enp129s0f2': {u'ip': None, u'mac': u'e0:97:96:14:9e:b1'}, u'enp129s0f3': {u'ip': None, u'mac': u'e0:97:96:14:9e:b2'}, u'enp129s0f0': {u'ip': None, u'mac': u'7c:a2:3e:ee:88:61'}, u'enp129s0f1': {u'ip': None, u'mac': u'e0:97:96:14:9e:b0'}, u'enp7s0f1': {u'ip': None, u'mac': u'7c:a2:3e:ee:88:64'}, u'enp7s0f0': {u'ip': u'172.23.85.90', u'mac': u'7c:a2:3e:ee:88:63'}, u'enp4s0f0': {u'ip': u'172.23.85.86', u'mac': u'7c:a2:3e:ee:88:61'}, u'enp4s0f1': {u'ip': u'172.23.85.87', u'mac': u'7c:a2:3e:ee:88:62'}}, u'cpus': 40, u'boot_interface': u'7c:a2:3e:ee:88:61', u'memory_mb': 262144, u'ipmi_address': u'172.23.85.77', u'inventory': {u'bmc_address': u'172.23.85.77', u'interfaces': [{u'name': u'enp4s0f1', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': u'172.23.85.87', u'mac_address': u'7c:a2:3e:ee:88:62'}, {u'name': u'enp4s0f0', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': u'172.23.85.86', u'mac_address': u'7c:a2:3e:ee:88:61'}, {u'name': u'enp7s0f0', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': u'172.23.85.90', u'mac_address': u'7c:a2:3e:ee:88:63'}, {u'name': u'enp7s0f1', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'7c:a2:3e:ee:88:64'}, {u'name': u'enp129s0f2', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'e0:97:96:14:9e:b1'}, {u'name': u'enp129s0f3', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'e0:97:96:14:9e:b2'}, {u'name': u'enp129s0f1', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'e0:97:96:14:9e:b0'}, {u'name': u'enp129s0f0', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'7c:a2:3e:ee:88:61'}], u'disks': [{u'rotational': True, u'vendor': u'HITACHI', u'name': u'/dev/sda', u'wwn_vendor_extension': None, u'wwn_with_extension': u'0x5000cca071225b78', u'model': u'HUC109090CSS600', u'wwn': u'0x5000cca071225b78', u'serial': u'5000cca071225b78', u'size': 900185481216}, {u'rotational': True, u'vendor': u'HITACHI', u'name': u'/dev/sdb', u'wwn_vendor_extension': None, u'wwn_with_extension': u'0x5000cca07122550c', u'model': u'HUC109090CSS600', u'wwn': u'0x5000cca07122550c', u'serial': u'5000cca07122550c', u'size': 900185481216}], u'system_vendor': {u'serial_number': u'210305613210F5000344', u'product_name': u'CH121 V3', u'manufacturer': u'To be filled by O.E.M.'}, u'memory': {u'physical_mb': 262144, u'total': 270084775936}, u'cpu': {u'count': 40, u'frequency': u'2900.929', u'model_name': u'Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz', u'architecture': u'x86_64'}}, u'error': None, u'local_gb': 837, u'data': [[u'disk', u'logical', u'count', u'2'], [u'disk', u'sda', u'size', u'900'], [u'disk', u'sda', u'vendor', u'HITACHI'], [u'disk', u'sda', u'model', u'HUC109090CSS600'], [u'disk', u'sda', u'rev', u'A440'], [u'disk', u'sda', u'optimal_io_size', u'0'], [u'disk', u'sda', u'physical_block_size', u'512'], [u'disk', u'sda', u'rotational', u'1'], [u'disk', u'sda', u'Write Cache Enable', u'1'], [u'disk', u'sda', u'Read Cache Disable', u'0'], [u'disk', u'sda', u'wwn-id', u'wwn-0x5000cca071225b78'], [u'disk', u'sda', u'scsi-id', u'scsi-35000cca071225b78'], [u'disk', u'sdb', u'size', u'900'], [u'disk', u'sdb', u'vendor', u'HITACHI'], [u'disk', u'sdb', u'model', u'HUC109090CSS600'], [u'disk', u'sdb', u'rev', u'A440'], [u'disk', u'sdb', u'optimal_io_size', u'0'], [u'disk', u'sdb', u'physical_block_size', u'512'], [u'disk', u'sdb', u'rotational', u'1'], [u'disk', u'sdb', u'Write Cache Enable', u'1'], [u'disk', u'sdb', u'Read Cache Disable', u'0'], [u'disk', u'sdb', u'wwn-id', u'wwn-0x5000cca07122550c'], [u'disk', u'sdb', u'scsi-id', u'scsi-35000cca07122550c'], [u'system', u'product', u'serial', u'210305613210F5000344'], [u'system', u'product', u'name', u'CH121 V3 (Type1Sku0)'], [u'system', u'product', u'vendor', u'To be filled by O.E.M.'], [u'system', u'product', u'version', u'V100R003'], [u'system', u'product', u'uuid', u'2A389A46-1DD2-11B2-B137-001823E5F68B'], [u'system', u'motherboard', u'name', u'IT11SGCA1'], [u'system', u'motherboard', u'vendor', u'Huawei Technologies Co., Ltd.'], [u'system', u'motherboard', u'version', u'V100R003'], [u'system', u'motherboard', u'serial', u'022KJF10F5000288'], [u'firmware', u'bios', u'version', u'1.30'], [u'firmware', u'bios', u'date', u'02/12/2015'], [u'firmware', u'bios', u'vendor', u'Insyde Corp.'], [u'memory', u'total', u'size', u'274877906944'], [u'memory', u'bank:0', u'size', u'17179869184'], [u'memory', u'bank:0', u'clock', u'2133000000'], [u'memory', u'bank:0', u'description', u'DIMM DRAM Synchronous 2133 MHz
+                                                                                                                                1953,1        99%
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+       2016-11-30 17:13:02.915 142656 DEBUG ironic_inspector.main [-] [node: MAC 7c:a2:3e:ee:88:7d BMC 172.23.85.73] Received data from the ramdisk: {u'cpu_arch': u'x86_64', u'root_disk': {u'rotational': True, u'vendor': u'HITACHI', u'name': u'/dev/sda', u'wwn_vendor_extension': None, u'wwn_with_extension': u'0x5000cca071244cd4', u'model': u'HUC109090CSS600', u'wwn': u'0x5000cca071244cd4', u'serial': u'5000cca071244cd4', u'size': 900185481216}, u'interfaces': {u'enp4s0f0': {u'ip': u'172.23.85.89', u'mac': u'7c:a2:3e:ee:88:7d'}, u'enp4s0f1': {u'ip': None, u'mac': u'7c:a2:3e:ee:88:7e'}, u'enp129s0f0': {u'ip': None, u'mac': u'9c:37:f4:83:c8:f7'}, u'enp129s0f1': {u'ip': None, u'mac': u'9c:37:f4:83:c8:f8'}, u'enp7s0f1': {u'ip': None, u'mac': u'7c:a2:3e:ee:88:80'}, u'enp7s0f0': {u'ip': None, u'mac': u'7c:a2:3e:ee:88:7f'}, u'enp132s0f0': {u'ip': None, u'mac': u'9c:37:f4:83:c8:f9'}, u'enp132s0f1': {u'ip': None, u'mac': u'9c:37:f4:83:c8:fa'}}, u'cpus': 40, u'boot_interface': u'7c:a2:3e:ee:88:7d', u'memory_mb': 262144, u'ipmi_address': u'172.23.85.73', u'inventory': {u'bmc_address': u'172.23.85.73', u'interfaces': [{u'name': u'enp4s0f1', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'7c:a2:3e:ee:88:7e'}, {u'name': u'enp4s0f0', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': u'172.23.85.89', u'mac_address': u'7c:a2:3e:ee:88:7d'}, {u'name': u'enp7s0f0', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'7c:a2:3e:ee:88:7f'}, {u'name': u'enp7s0f1', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'7c:a2:3e:ee:88:80'}, {u'name': u'enp129s0f1', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'9c:37:f4:83:c8:f8'}, {u'name': u'enp129s0f0', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'9c:37:f4:83:c8:f7'}, {u'name': u'enp132s0f0', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'9c:37:f4:83:c8:f9'}, {u'name': u'enp132s0f1', u'has_carrier': True, u'switch_port_descr': None, u'switch_chassis_descr': None, u'ipv4_address': None, u'mac_address': u'9c:37:f4:83:c8:fa'}], u'disks': [{u'rotational': True, u'vendor': u'HITACHI', u'name': u'/dev/sda', u'wwn_vendor_extension': None, u'wwn_with_extension': u'0x5000cca071244cd4', u'model': u'HUC109090CSS600', u'wwn': u'0x5000cca071244cd4', u'serial': u'5000cca071244cd4', u'size': 900185481216}, {u'rotational': True, u'vendor': u'HITACHI', u'name': u'/dev/sdb', u'wwn_vendor_extension': None, u'wwn_with_extension': u'0x5000cca071223d80', u'model': u'HUC109090CSS600', u'wwn': u'0x5000cca071223d80', u'serial': u'5000cca071223d80', u'size': 900185481216}], u'system_vendor': {u'serial_number': u'210305613210F5000345', u'product_name': u'CH121 V3', u'manufacturer': u'To be filled by O.E.M.'}, u'memory': {u'physical_mb': 262144, u'total': 270084775936}, u'cpu': {u'count': 40, u'frequency': u'1939.234', u'model_name': u'Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz', u'architecture': u'x86_64'}}, u'error': None, u'local_gb': 837, u'data': [[u'disk', u'logical', u'count', u'2'], [u'disk', u'sda', u'size', u'900'], [u'disk', u'sda', u'vendor', u'HITACHI'], [u'disk', u'sda', u'model', u'HUC109090CSS600'], [u'disk', u'sda', u'rev', u'A440'], [u'disk', u'sda', u'optimal_io_size', u'0'], [u'disk', u'sda', u'physical_block_size', u'512'], [u'disk', u'sda', u'rotational', u'1'], [u'disk', u'sda', u'Write Cache Enable', u'1'], [u'disk', u'sda', u'Read Cache Disable', u'0'], [u'disk', u'sda', u'wwn-id', u'wwn-0x5000cca071244cd4'], [u'disk', u'sda', u'scsi-id', u'scsi-35000cca071244cd4'], [u'disk', u'sdb', u'size', u'900'], [u'disk', u'sdb', u'vendor', u'HITACHI'], [u'disk', u'sdb', u'model', u'HUC109090CSS600'], [u'disk', u'sdb', u'rev', u'A440'], [u'disk', u'sdb', u'optimal_io_size', u'0'], [u'disk', u'sdb', u'physical_block_size', u'512'], [u'disk', u'sdb', u'rotational', u'1'], [u'disk', u'sdb', u'Write Cache Enable', u'1'], [u'disk', u'sdb', u'Read Cache Disable', u'0'], [u'disk', u'sdb', u'wwn-id', u'wwn-0x5000cca071223d80'], [u'disk', u'sdb', u'scsi-id', u'scsi-35000cca071223d80'], [u'system', u'product', u'serial', u'210305613210F5000345'], [u'system', u'product', u'name', u'CH121 V3 (Type1Sku0)'], [u'system', u'product', u'vendor', u'To be filled by O.E.M.'], [u'system', u'product', u'version', u'V100R003'], [u'system', u'product', u'uuid', u'2A3E6DC2-1DD2-11B2-8FCE-001823E5F68B'], [u'system', u'motherboard', u'name', u'IT11SGCA1'], [u'system', u'motherboard', u'vendor', u'Huawei Technologies Co., Ltd.'], [u'system', u'motherboard', u'version', u'V100R003'], [u'system', u'motherboard', u'serial', u'022KJF10F5000258'], [u'firmware', u'bios', u'version', u'1.30'], [u'firmware', u'bios', u'date', u'02/12/2015'], [u'firmware', u'bios', u'vendor', u'Insyde Corp.'], [u'memory', u'total', u'size', u'274877906944'], [u'memory', u'bank:0', u'size', u'17179869184'], [u'memory', u'bank:0', u'clock', u'2133000000'], [u'memory', u'bank:0', u'description', u'DIMM DRAM Synchronous 2133 MHz (0.5 ns)'], [u'memory', u'bank:0', u'vendor', u'M                                                                                                                         
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+
+
+
+
+
+
+

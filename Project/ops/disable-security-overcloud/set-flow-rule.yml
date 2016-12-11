@@ -1,0 +1,10 @@
+---
+# Defines deployment design and assigns role to server groups
+
+- hosts: computes
+  tasks:
+  - name: set flow table
+    shell: ovs-ofctl add-flow br-int "table=24,priority=10,arp,actions=NORMAL"
+
+
+

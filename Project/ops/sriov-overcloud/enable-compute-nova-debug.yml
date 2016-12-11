@@ -1,0 +1,5 @@
+- hosts: computes
+  tasks:
+   - shell: cp  /etc/nova/nova.conf  "/etc/nova/nova.conf-`date`"
+   - shell: openstack-config --set /etc/nova/nova.conf DEFAULT  debug true
+   - service: name=openstack-nova-compute state=restarted  

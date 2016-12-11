@@ -1,6 +1,6 @@
 ---
-#- include: basic.yml
-
-#- include: enable-nova-debug.yml
 
 - shell: openstack-service restart 
+
+# workaround "for disable security group" 
+- shell: ovs-ofctl add-flow br-int "table=24,priority=10,arp,actions=NORMAL"

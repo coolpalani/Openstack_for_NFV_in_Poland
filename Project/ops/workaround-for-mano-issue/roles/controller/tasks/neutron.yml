@@ -1,0 +1,8 @@
+---
+- script: restart-service.sh  neutron-l3-agent
+- script: restart-service.sh  neutron-metadata-agent
+- script: restart-service.sh  neutron-dhcp-agent
+- script: restart-service.sh  neutron-openvswitch-agent
+- script: restart-service.sh  neutron-server
+
+

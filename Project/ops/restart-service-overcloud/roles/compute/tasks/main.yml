@@ -1,0 +1,8 @@
+---
+
+- shell: openstack-service restart
+
+- name: neutron-sriov-nic-agent.service
+  service: name=neutron-sriov-nic-agent.service state=restarted 
+
+

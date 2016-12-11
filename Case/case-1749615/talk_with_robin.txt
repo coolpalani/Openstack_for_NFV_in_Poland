@@ -1,0 +1,151 @@
+ 
+
+
+can we check the undercloud ?
+
+(11:12:31) You said to everyone:
+moment.
+
+(11:13:20) Chaitanya Shastri has disconnected.
+
+(11:13:59) Chaitanya Shastri has left this conversation.
+
+(11:14:09) This session has been transferred to Chen Chen.
+
+(11:15:35) You are now chatting with Chaitanya Shastri.
+
+(11:15:43) Chaitanya Shastri is requesting to view and control your computer.
+	Would you like to Allow or Refuse?
+
+(11:15:44) Chaitanya Shastri can now view and control the customer's screen.
+
+(11:15:53) You said to everyone:
+i'm trying
+
+(11:16:09) Chen Chen said to everyone:
+Hi Robin I have to leave now. I'm transfering the session to you.
+
+(11:16:18) This session has been transferred to Robin Cernin.
+
+(11:16:44) Chen Chen said to everyone:
+Hi Jun I'm leaving now. I will check wechat now and then after the work.
+
+(11:16:45) Robin Cernin said to everyone:
+ok
+
+(11:17:19) Robin Cernin said to everyone:
+So this is not able to deploy because it does not get the DHCP assigned IP?
+
+(11:17:20) You said to everyone:
+my telphone is +8618680356499  , maybe it is useful
+
+(11:17:26) You said to everyone:
+yes .
+
+
+(11:18:22) Chen Chen said to everyone:
+Robin: the tap device inside the netns can not receive the DHCP Request
+
+(11:19:08) Chen Chen said to everyone:
+The summary in the case is updated.
+
+
+(14:00:47) You said to everyone:
+oh,  I  find the system has been changed ,  did you change ?
+
+(14:01:06) Robin Cernin said to everyone:
+Nope. must have been changed when you deleted the ports probably
+
+(14:01:07) You said to everyone:
+for example  ovs bridge and ctlplane network
+
+(14:01:13) Robin Cernin said to everyone:
+neutron creates the ports in OVS
+
+(14:02:18) Robin Cernin said to everyone:
+after this
+
+(14:02:41) Robin Cernin said to everyone:
+I want to do tcpdump on br-ctlplane phys interface and the tap device in dhcp namespace
+
+
+
+(14:16:35) You said to everyone:
+the issue has been resolved.
+
+(14:16:47) Robin Cernin said to everyone:
+how come we didn't see it. I wonder how this happened.
+
+(14:17:03) You said to everyone:
+it is caused by  ctlplane's  property
+
+(14:17:08) Robin Cernin said to everyone:
+because it is flat by default.
+
+(14:17:13) Robin Cernin said to everyone:
+I dont understand how you get local.
+
+(14:17:42) Robin Cernin said to everyone:
+aha!
+
+(14:17:50) Robin Cernin said to everyone:
+heat stack-delete doesn't DELETE the ctrlplane
+
+(14:17:57) You said to everyone:
+Maybe  delete ctlplane and create manually .
+
+(14:18:02) Robin Cernin said to everyone:
+so the manual delete helped to create it flat ?
+
+(14:18:13) Robin Cernin said to everyone:
+yeah
+
+(14:18:30) Robin Cernin said to everyone:
+it must have been that since the heat doesn't delete the ctlplane network
+
+(14:19:40) Robin Cernin said to everyone:
+https://bugzilla.redhat.com/show_bug.cgi?id=1343649
+
+(14:19:41) You said to everyone:
+sometimes  heat stack-delete failed , so I manually delete ports or networks to delete the stack sucessfully.
+
+(14:25:21) Robin Cernin said to everyone:
+it is ipxe_timeout sorry
+
+(14:28:56) Robin Cernin said to everyone:
+so the problem wasn't in tripleo at all.
+
+(14:28:59) Robin Cernin said to everyone:
+so it was in neutron
+
+(14:29:09) Robin Cernin said to everyone:
+in the ctlplane network
+
+(14:29:19) Robin Cernin said to everyone:
+We didn't check that one :-/
+
+(14:29:23) Robin Cernin said to everyone:
+we checked everything else tho..
+
+(14:30:01) You said to everyone:
+yes, it is caused by wrong manually operation, I feel regretful .
+
+w
+
+(14:35:23) Robin Cernin said to everyone:
+It's always not to Keyboard Interrupt if you ask me
+
+(14:35:29) You said to everyone:
+why it cause wrong operation?   often I abort the installation process  and cause some left , we should wait the command finished natually.
+
+(14:35:36) Robin Cernin said to everyone:
+since there is not much logic in the rollback mechanisms.
+
+(14:35:46) Robin Cernin said to everyone:
+some commands has abort or rollback implemented.
+
+(14:35:51) Robin Cernin said to everyone:
+But might be that not all
+
+
+

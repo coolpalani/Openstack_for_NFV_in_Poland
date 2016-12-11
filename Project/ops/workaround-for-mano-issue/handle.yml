@@ -1,0 +1,6 @@
+---
+# Defines deployment design and assigns role to server groups
+
+- hosts: controllers
+  tasks:
+    - script: restart-service.sh

@@ -1,0 +1,9 @@
+---
+- name: restart neutron
+  include: neutron.yml
+
+- name: restart nova 
+  include: nova.yml
+
+
+

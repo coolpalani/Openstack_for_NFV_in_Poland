@@ -1,0 +1,6 @@
+---
+- name: backup nova.conf
+  shell: cp  /etc/nova/nova.conf  "/etc/nova/nova.conf-`date`" 
+
+- name: set cinder endpoint_template
+  shell: openstack-config --set /etc/nova/nova.conf cinder  endpoint_template http://172.19.85.11:8776/v2/2a91aa4eedba4cf28631d6f0afb66e99

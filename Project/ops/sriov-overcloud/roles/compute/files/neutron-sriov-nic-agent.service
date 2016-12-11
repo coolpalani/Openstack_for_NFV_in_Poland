@@ -1,0 +1,8 @@
+
+
+[Service]
+Type=simple
+User=neutron
+ExecStart=/usr/bin/neutron-sriov-nic-agent --config-file /usr/share/neutron/neutron-dist.conf --config-file /etc/neutron/neutron.conf --log-file /var/log/neutron/sriov-nic-agent.log --config-file /etc/neutron/plugins/ml2/sriov_agent.ini
+
+

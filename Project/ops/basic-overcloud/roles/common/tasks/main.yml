@@ -3,3 +3,18 @@
 #
 - name: configure selinux and sshd service
   selinux: policy=targeted state=permissive
+
+- name: configure  sshd service,first edit config file
+  lineinfile: dest=/etc/ssh/sshd_config insertafter=UseDNS  line="UseDNS no" state=present
+
+- name: restart sshd service
+  service: name=sshd state=restarted
+
+- name: stop and disable NetworkManager
+  service: name=NetworkManager  state=stopped enabled=no
+
+- name: change dhcp in ifcfg-*  to none 
+  script: change-dhcp-to-none.sh 
+
+- name: enable and start network
+  service: name=network state=started  enabled=yes

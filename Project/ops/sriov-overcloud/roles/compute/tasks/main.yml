@@ -1,4 +1,13 @@
 ---
 - include: set-vf-num.yml
 
+- yum: name=openstack-neutron-sriov-nic-agent state=present
+
+- name: new sriov-nic-agent config file
+  copy: src=neutron-sriov-nic-agent.service  dest=/usr/lib/systemd/system/neutron-sriov-nic-agent.service
+
+- name: neutron-sriov-nic-agent.service
+  service: name=neutron-sriov-nic-agent.service state=started enabled=yes
+
+
 - include: set-sriov.yml
